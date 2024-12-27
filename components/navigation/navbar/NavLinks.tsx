@@ -19,7 +19,7 @@ const NavLinks: FC<Props> = ({ isMobileNav = false }) => {
   const userId = 1;
 
   return (
-    <ul>
+    <>
       {sidebarLinks.map((link) => {
         const isActive =
           (pathname.includes(link.route) && link.route.length > 1) ||
@@ -94,7 +94,7 @@ const NavLinks: FC<Props> = ({ isMobileNav = false }) => {
           </React.Fragment>
         );
       })}
-    </ul>
+    </>
   );
 };
 
