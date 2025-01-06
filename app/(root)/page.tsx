@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import LocalSearch from "@/components/navigation/search/LocalSearch";
+import HomeFilter from "@/components/filters/HomeFilter";
+import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 
@@ -53,11 +54,17 @@ interface SearchParams {
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
-  const { query = "" } = await searchParams;
+  const { query = "", filter = "" } = await searchParams;
 
-  const filteredQuestion = questions.filter((question) =>
-    question.title.toLowerCase().includes(query?.toLowerCase())
-  );
+  const filteredQuestion = questions
+    .filter((question) =>
+      question.title.toLowerCase().includes(query?.toLowerCase())
+    )
+    .filter((val) =>
+      val.tags.some((tag) =>
+        tag.name.toLowerCase().includes(filter.toLowerCase())
+      )
+    );
 
   return (
     <>
@@ -91,7 +98,7 @@ const Home = async ({ searchParams }: SearchParams) => {
         />
       </section>
 
-      {/* <section>HomeFIlter</section> */}
+      <HomeFilter />
 
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestion.map((question) => (
