@@ -10,6 +10,7 @@ const ROUTES = {
   TAG: (id: string) => `/tags/${id}`,
   COMMUNITIES: "/",
   QUESTIONS: "/questions",
+  QUESTION: (id: string) => `/question/${id}`,
   PROFILE: (id: string) => `/profile/${id}`,
 };
 
