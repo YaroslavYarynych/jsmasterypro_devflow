@@ -9,7 +9,7 @@ export interface IAccount {
   image?: string;
 }
 
-const AccountSchema = new Schema(
+const AccountSchema = new Schema<IAccount>(
   {
     name: {
       type: String,
@@ -26,12 +26,12 @@ const AccountSchema = new Schema(
       required: true,
     },
     userId: {
-      type: Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
     providerAccountId: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
     },
   },
