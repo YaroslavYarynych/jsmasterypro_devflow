@@ -29,11 +29,6 @@ export const sidebarLinks = [
     route: "/profile",
     label: "Profile",
   },
-  {
-    imgURL: "/icons/title.svg",
-    route: "/ask-a-title",
-    label: "Ask a title",
-  },
 ];
 
 export const rightbarQuestions = [
