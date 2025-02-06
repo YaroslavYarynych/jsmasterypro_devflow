@@ -52,3 +52,14 @@ export const SignUpSchema = z.object({
       message: "Password must contain at least one special character.",
     }),
 });
+
+export const UserSchema = z.object({
+  name: z.string().min(1, { message: "Name is required." }),
+  username: z.string().min(1, { message: "Username is required." }),
+  email: z.string().email({ message: "Please provide correct email address." }),
+  bio: z.string().optional(),
+  image: z.string().url({ message: "Please provide a valid URL." }).optional(),
+  location: z.string().optional(),
+  portfolio: z.string().optional(),
+  reputation: z.number().optional(),
+});
