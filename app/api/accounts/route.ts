@@ -27,6 +27,7 @@ export const GET = async () => {
 export const POST = async (request: Request) => {
   try {
     await dbConnect();
+
     const body = await request.json();
 
     const validatedData = AccountSchema.parse(body);
